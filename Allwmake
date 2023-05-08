@@ -1,0 +1,6 @@
+#!/bin/sh
+set -x
+
+( cd lib && ./Allwmake )
+( pwd )
+( cd applications && wmake )

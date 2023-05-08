@@ -1,0 +1,1 @@
+../smearPatchToMesh/regionInfo.H

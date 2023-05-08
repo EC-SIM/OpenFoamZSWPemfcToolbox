@@ -1,0 +1,8 @@
+OPstream toNeighbour(Pstream::commsTypes::blocking, neighbour);
+statt: OPstream toNeighbour(Pstream::blocking, neighbour);
+
+IPstream fromNeighbour(Pstream::commsTypes::blocking, neighbour);
+statt: IPstream fromNeighbour(Pstream::blocking, neighbour);
+
+if (io.typeHeaderOk<IOdictionary>(true))
+statt: if (io.headerOk())

@@ -1,0 +1,1 @@
+../myPorosityModel/myPowerLaw/myPowerLawTemplates.C

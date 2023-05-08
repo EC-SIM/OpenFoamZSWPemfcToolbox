@@ -1,0 +1,8 @@
+#!/bin/sh
+set -x
+
+( pwd )
+( cd lib && wclean)
+( cd lib && wclean libso)
+( pwd )
+( cd applications && wclean)

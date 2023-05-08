@@ -1,0 +1,12 @@
+ifeq  ($(findstring 1.5,$(WM_PROJECT_VERSION)),1.5)
+    OFV =  -DOF_VER_15
+endif
+
+EXE_INC = -g \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    $(OFV)
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools

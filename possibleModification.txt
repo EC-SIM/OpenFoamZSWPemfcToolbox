@@ -1,0 +1,9 @@
+- Fuel/Air properties canstant value
+	--> readProperties: dfelete mu, rho, cp, k
+	--> createFields: itialise mu, rho,cp, k =0
+
+	--> Value only needed for initalising Fields
+
+- Physical properties calculation of mixture: Wilke dynamic viscosity
+
+- PreIterAct read properties wird nicht verwendet
