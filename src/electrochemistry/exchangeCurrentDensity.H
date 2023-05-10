@@ -11,7 +11,7 @@ scalarField i0Cathode(cathodeT.size());
        
          i0CathodeElectrolyteReference.value()
         *Foam::exp(((-1.*ECathodeElectrolyte.value())/(Rgas))
-        *((1.0/cathodeT)-(1.0/343.15))) //Changed to 343
+        *((1.0/cathodeT)-(1.0/TRefC))) //S.S. 10.05.2023
      );
 
     Info<< "min,mean,max (i0Ca) = " << gMin(i0Cathode) << "  "
@@ -25,7 +25,7 @@ scalarField i0Anode(cathodeT.size());
      (
         i0AnodeElectrolyteReference.value()
         *Foam::exp(((-1.*EAnodeElectrolyte.value())/(Rgas))
-        *((1.0/anodeToCathode.faceInterpolate(anodeT))-(1.0/343.15))) 
+        *((1.0/anodeToCathode.faceInterpolate(anodeT))-(1.0/TRefA))) //S.S. 10.05.2023
      );
 
     Info<< "min,mean,max (anodeT) = " << gMin(anodeT) << "  "

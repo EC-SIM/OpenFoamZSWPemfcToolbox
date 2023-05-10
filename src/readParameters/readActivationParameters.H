@@ -37,6 +37,9 @@
 	
 	dimensionedScalar iLeak(activationParameters.lookup("iLeak")); //S.S. 09.06.2021
     dimensionedScalar fRidders(activationParameters.lookup("fRidders")); //S.S. 09.06.2021
+    
+    dimensionedScalar TRefC(activationParameters.lookup("TRefC")); //S.S. 10.05.2023
+    dimensionedScalar TrefA(activationParameters.lookup("TrefA")); //S.S. 10.05.2023
 
 
     // echo inputs from dictionary to stdout
