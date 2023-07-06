@@ -13,7 +13,7 @@ https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 
 ## This toolbox is base on pemfcSinglePhaseModel-4.0
 
-The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1
+The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1 (DOI: 10.17632/3gz7pxznzn.1)
 
 <!---
 # Features
