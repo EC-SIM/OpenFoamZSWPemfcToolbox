@@ -1,14 +1,46 @@
 # OpenFoamZSWPemfcToolbox
 
-## Developed within the ASI Project
+## Developed within the project AutoStack Industrie - ASI
+
+The toolbox was developed within the ASI-Project. Funded by the Federal Ministry of Transport (grant number: 03B10103), the “AutoStack-Industrie” joint project with 10 industry partners was launched to develop a high-performance fuel cell stack suitable for series production for automotive applications and was successfully com-
+pleted in 2022.
+
+Related links:
+
+https://www.zsw-bw.de/en/newsroom/news/news-detail/news/detail/News/fuel-cell-powered-e-mobility-autostack-industry-project-sets-the-stage-for-mass-fuel-cell-manufa.html
+
+https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 
 ## This toolbox is base on pemfcSinglePhaseModel-4.0
 
-The toolbox pemfcSinglePhaseModel-4.0 is published under CC BY 4.0 [https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1]
+The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1
 
 <!---
-# How to contribute to 
+# Features
 
+## Supported Platforms
+
+# Getting started
+
+## Prerequisites
+
+## Setting up OpenFoamZSWPemfcToolbox
+
+# Documentation
+
+# Feedback
+
+## Reporting Bugs
+
+## Development / How to contribute
+
+--- ? Include links to speparate files ("Contribution guidelines" and "Roadmap") ? ---
+
+# Acknowledgements
+
+## Funding
+
+## Cotributors
 
 # Copyright and License
 --->
