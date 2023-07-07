@@ -35,7 +35,10 @@ The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some 
 New implentation are:
 - more realistic membrane humidity: average of anode and cathode relative humidity
 - considering anode activation overpotential
-- simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode 
+- simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode
+- implementation of hydrogen crossover
+- implementation of "postProcessing" functunality of OpenFOAM
+- Implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
 
 ## Getting started
