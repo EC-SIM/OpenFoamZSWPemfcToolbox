@@ -10,12 +10,24 @@ https://www.zsw-bw.de/en/newsroom/news/news-detail/news/detail/News/fuel-cell-po
 
 https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 
+## OpenFOAM v7
+The pemfcFOAM solver is based on OpenFOAM v7 that can be downloaded under: https://openfoam.org/version/7/
+
+
+
 ## This toolbox is base on pemfcSinglePhaseModel-4.0
 
 The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1 (DOI: 10.17632/3gz7pxznzn.1)
 
-## OpenFOAM v7
-The pemfcFOAM solver is based on OpenFOAM v7 that can be downloaded under: https://openfoam.org/version/7/
+This model is a 3-D, non-isothermal and single-phase flow model for simulation of PEM fuel cells. Assumptions of the electrochemical model are:
+- steady-state operating condition
+- gas flow: laminar and incompressible, ideal gas
+- fuel cell components: isotropic and homogenous
+- electrochemical reaction is modelled at cathode catalyst layer membran interface (2D)
+- membrane: fully humidified, impermeable to reactant gases
+- anode: avtivation overpotential and mass transport losses are neglegted
+- ohmic heatimg not considered 
+
 
 ## Features/Modification compared to pemfcSinglePhaseModel-4.0
 The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed. 
