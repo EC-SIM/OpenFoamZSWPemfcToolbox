@@ -1,15 +1,5 @@
 # OpenFoamZSWPemfcToolbox
 
-## Developed within the project AutoStack Industrie - ASI
-
-The toolbox was developed within the ASI-Project. Funded by the German Federal Ministry of Transport (grant number: 03B10103), the “AutoStack-Industrie” joint project with 10 industry partners was launched to develop a high-performance fuel cell stack suitable for series production for automotive applications and was successfully completed in 2022.
-
-Related links:
-
-https://www.zsw-bw.de/en/newsroom/news/news-detail/news/detail/News/fuel-cell-powered-e-mobility-autostack-industry-project-sets-the-stage-for-mass-fuel-cell-manufa.html
-
-https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
-
 ## OpenFOAM v7
 The pemfcFOAM solver is based on OpenFOAM v7 that can be downloaded under: https://openfoam.org/version/7/
 
@@ -29,7 +19,10 @@ This model is a 3-D, non-isothermal and single-phase flow model for simulation o
 
 
 ## Features/Modification compared to pemfcSinglePhaseModel-4.0
-The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed. 
+The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed.
+<!---
+Anm.CB: ... has to be fixed. -> Müssen noch behoben werden? | Oder wurden schon behoben? -> ... have been fixed.
+--->
 
 New implentation are:
 - implementation of coolant flowfield and MPL properties
@@ -38,22 +31,20 @@ New implentation are:
 - simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode
 - implementation of hydrogen crossover
 - implementation of "postProcessing" functunality of OpenFOAM
-- Implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
+- implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
 ![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
 
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
+<!---
 ## Getting started
-
 
 ## Example
 
-<!---
 # Features
 
 ## Supported Platforms
-
 
 ## Prerequisites
 
@@ -68,15 +59,26 @@ New implentation are:
 ## Development / How to contribute
 
 --- ? Include links to speparate files ("Contribution guidelines" and "Roadmap") ? ---
+--->
 
 # Acknowledgements
 
+## Developed within the project AutoStack Industrie - ASI
+
+The toolbox was developed within the ASI-Project. Funded by the German Federal Ministry of Transport (grant number: 03B10103), the “AutoStack-Industrie” joint project with 10 industry partners was launched to develop a high-performance fuel cell stack suitable for series production for automotive applications and was successfully completed in 2022.
+
+Related links:
+
+https://www.zsw-bw.de/en/newsroom/news/news-detail/news/detail/News/fuel-cell-powered-e-mobility-autostack-industry-project-sets-the-stage-for-mass-fuel-cell-manufa.html
+
+https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
+
+<!---
 ## Funding
 
 ## Cotributors
 
 # Copyright and License
---->
 
 ## OpenFOAM Licence (GPLv3)
 "OpenFOAM is distributed by the OpenFOAM Foundation and is freely available and open source, licensed under the GNU General Public Licence.
@@ -89,6 +91,7 @@ There are two main elements to the GPL, designed to prevent open source software
 These aspects of the licence discourage exploitation, because if a closed sourced software product that includes open source software is sold for a fee, anyone purchasing the product could demand the source code and redistribute it for free.
 
 Apart from this, the licence is designed to offer freedom, in particular it does not force users of the software to make modifications or developments publicly available. That means that software such as OpenFOAM can be used as the basis of in-house software." [https://openfoam.org/licence/]
+--->
 
 # Contact 📫
 
