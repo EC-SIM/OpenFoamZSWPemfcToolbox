@@ -32,6 +32,7 @@ This model is a 3-D, non-isothermal and single-phase flow model for simulation o
 The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed. 
 
 New implentation are:
+- implementation of coolant flowfield and MPL properties
 - more realistic membrane humidity: average of anode and cathode relative humidity
 - considering anode activation overpotential
 - simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode
