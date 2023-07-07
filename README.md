@@ -40,7 +40,7 @@ New implentation are:
 - implementation of "postProcessing" functunality of OpenFOAM
 - Implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
-![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
+![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png) ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
 ## Getting started
 <!---
