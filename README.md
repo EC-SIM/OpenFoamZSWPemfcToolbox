@@ -2,8 +2,7 @@
 
 ## Developed within the project AutoStack Industrie - ASI
 
-The toolbox was developed within the ASI-Project. Funded by the Federal Ministry of Transport (grant number: 03B10103), the “AutoStack-Industrie” joint project with 10 industry partners was launched to develop a high-performance fuel cell stack suitable for series production for automotive applications and was successfully com-
-pleted in 2022.
+The toolbox was developed within the ASI-Project. Funded by the German Federal Ministry of Transport (grant number: 03B10103), the “AutoStack-Industrie” joint project with 10 industry partners was launched to develop a high-performance fuel cell stack suitable for series production for automotive applications and was successfully completed in 2022.
 
 Related links:
 
@@ -15,12 +14,24 @@ https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 
 The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1 (DOI: 10.17632/3gz7pxznzn.1)
 
+## OpenFOAM v7
+The pemfcFOAM solver is based on OpenFOAM v7 that can be downloaded under: https://openfoam.org/version/7/
+
+## Features/Modification compared to pemfcSinglePhaseModel-4.0
+The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed. 
+
+New implentation are:
+- more realistic membrane humidity: average of anode and cathode relative humidity
+- considering anode activation overpotential
+- simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode 
+
+
+## Getting started
 <!---
 # Features
 
 ## Supported Platforms
 
-# Getting started
 
 ## Prerequisites
 
