@@ -14,7 +14,6 @@ https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 The pemfcFOAM solver is based on OpenFOAM v7 that can be downloaded under: https://openfoam.org/version/7/
 
 
-
 ## This toolbox is base on pemfcSinglePhaseModel-4.0
 
 The development is based on the pemfcSinglePhaseModel-4.0, which is published under CC BY 4.0 under: https://unnc.digitalcommonsdata.com/datasets/3gz7pxznzn/1 (DOI: 10.17632/3gz7pxznzn.1)
@@ -40,6 +39,7 @@ New implentation are:
 - implementation of "postProcessing" functunality of OpenFOAM
 - Implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
+![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
 
 ## Getting started
 <!---
