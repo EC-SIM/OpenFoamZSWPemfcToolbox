@@ -15,7 +15,7 @@ This model is a 3-D, non-isothermal and single-phase flow model for simulation o
 - electrochemical reaction is modelled at cathode catalyst layer membran interface (2D)
 - membrane: fully humidified, impermeable to reactant gases
 - anode: avtivation overpotential and mass transport losses are neglegted
-- ohmic heatimg not considered 
+- ohmic heating not considered 
 
 
 ## Features/Modification compared to pemfcSinglePhaseModel-4.0
