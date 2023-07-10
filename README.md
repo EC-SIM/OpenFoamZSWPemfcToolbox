@@ -37,10 +37,23 @@ New implentation are:
 
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
+## Example
+
+
+## Publications
+
+1. Conference Presentation (Oral) <br />
+   S. Schneider (Corresponding author), F. Wilhelm, J.Scholta, L.Jörissen, M. Koprek  <br />
+   **Advancement and validation of OpenFOAM PEMFC toolbox on automotive PEMFC design** <br />
+   19th Symposium on Fuel Cell and Battery Modeling and Experimental Validation - MODVAL, Duisburg, Germany, 21 Mar 2023 - 23 Mar 2023
+2. Conference Presentation (Poster)  <br />
+   S. Schneider (Corresponding author), F. Wilhelm, J.Scholta, L.Jörissen, M. Koprek  <br />
+   **Advancement of an OpenFOAM PEMFC toolbox and its validation an an automotive cell design** <br />
+   18th Ulm Electrochemical Talks - UECT, Ulm, Germany, 14 Jun 2023 - 15 Jun 2023
+  
+
 <!---
 ## Getting started
-
-## Example
 
 # Features
 
