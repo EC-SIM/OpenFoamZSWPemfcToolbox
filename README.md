@@ -30,15 +30,20 @@ New implentation are:
 - considering anode activation overpotential
 - simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode
 - implementation of hydrogen crossover
-- implementation of "postProcessing" functunality of OpenFOAM
+- implementation of "postProcessing" functionality of OpenFOAM
 - implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
+
+A schematic description of the pemfcFoam solver and the convergence preocedure are illustraded below.
 
 ![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
 
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
-## Example
+## Getting started
+The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory.   
 
+## Example
+An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the xxx.pdf file.
 
 ## Publications
 
@@ -53,9 +58,6 @@ New implentation are:
   
 
 <!---
-## Getting started
-
-# Features
 
 ## Supported Platforms
 
