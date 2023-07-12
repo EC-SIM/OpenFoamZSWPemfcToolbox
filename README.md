@@ -19,10 +19,7 @@ This model is a 3-D, non-isothermal and single-phase flow model for simulation o
 
 
 ## Features/Modification compared to pemfcSinglePhaseModel-4.0
-The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation has to be fixed.
-<!---
-Anm.CB: ... has to be fixed. -> Müssen noch behoben werden? | Oder wurden schon behoben? -> ... have been fixed.
---->
+The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation have been fixed.
 
 New implentation are:
 - implementation of coolant flowfield and MPL properties
@@ -39,13 +36,16 @@ A schematic description of the pemfcFoam solver and the convergence preocedure a
 
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
-## Getting started
-The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory.   
+## Documentation
+At the moment there is no formal documentation of the pemfcFOAM solver beside this README file available. An example is preapred as described below. An journal publication ia planned in future.
 
-## Example
+# Getting started
+The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory. Then OpenFOAM version must be loaded and the pemfcFoam code can be compiled by running Allwmake. 
+
+# Example
 An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the xxx.pdf file.
 
-## Publications
+# Publications
 
 1. Conference Presentation (Oral) <br />
    S. Schneider (Corresponding author), F. Wilhelm, J.Scholta, L.Jörissen, M. Koprek  <br />
@@ -57,22 +57,14 @@ An examplary case for the pemfcFOAM solver is prepared. It decribes a single cha
    18th Ulm Electrochemical Talks - UECT, Ulm, Germany, 14 Jun 2023 - 15 Jun 2023
   
 
-<!---
 
-## Supported Platforms
-
-## Prerequisites
-
-## Setting up OpenFoamZSWPemfcToolbox
-
-# Documentation
 
 # Feedback
 
-## Reporting Bugs
 
-## Development / How to contribute
+# Development / How to contribute
 
+<!---
 --- ? Include links to speparate files ("Contribution guidelines" and "Roadmap") ? ---
 --->
 
