@@ -48,7 +48,7 @@ An examplary case for the pemfcFOAM solver is prepared. It decribes a single cha
 # Publications
 
 1. Conference Presentation (Oral) <br />
-   S. Schneider (Corresponding author), F. Wilhelm, J.Scholta, L.Jörissen, M. Koprek  <br />
+   S. Schneider (Corresponding author), F. Wilhelm, J. Scholta, L. Jörissen, M. Koprek  <br />
    **Advancement and validation of OpenFOAM PEMFC toolbox on automotive PEMFC design** <br />
    19th Symposium on Fuel Cell and Battery Modeling and Experimental Validation - MODVAL, Duisburg, Germany, 21 Mar 2023 - 23 Mar 2023
 2. Conference Presentation (Poster)  <br />
