@@ -12,16 +12,16 @@ This model is a 3-D, non-isothermal and single-phase flow model for simulation o
 - steady-state operating condition
 - gas flow: laminar and incompressible, ideal gas
 - fuel cell components: isotropic and homogenous
-- electrochemical reaction is modelled at cathode catalyst layer membran interface (2D)
+- electrochemical reaction is modelled at cathode catalyst layer membrane interface (2D)
 - membrane: fully humidified, impermeable to reactant gases
-- anode: avtivation overpotential and mass transport losses are neglegted
+- anode: activation overpotential and mass transport losses are neglegted
 - ohmic heating not considered 
 
 
 ## Features/Modification compared to pemfcSinglePhaseModel-4.0
 The pemfcSinglePhaseModel-4.0 was updated from OpenFOAM v4 to OpenFOAM v7. Some inconsistencies in the code concerning modelling of porous media, gas mixture on anode side, source term of energy equation and possibility for parallel calculation have been fixed.
 
-New implentation are:
+New implentations are:
 - implementation of coolant flowfield and MPL properties
 - more realistic membrane humidity: average of anode and cathode relative humidity
 - considering anode activation overpotential
@@ -30,14 +30,14 @@ New implentation are:
 - implementation of "postProcessing" functionality of OpenFOAM
 - implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
-A schematic description of the pemfcFoam solver and the convergence preocedure are illustraded below.
+A schematic description of the pemfcFoam solver and the convergence procedure are illustrated below.
 
 ![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
 
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
 ## Documentation
-At the moment there is no formal documentation of the pemfcFOAM solver beside this README file available. An example is preapred as described below. An journal publication ia planned in future.
+At the moment there is no formal documentation of the pemfcFOAM solver beside this README file available. An example is prepared as described below. A journal publication is planned in future.
 
 # Getting started
 The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory. Then OpenFOAM version must be loaded and the pemfcFoam code can be compiled by running Allwmake. 
