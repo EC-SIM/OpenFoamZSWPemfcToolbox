@@ -1,2 +1,2 @@
 SOURCE = \
-pemfcSinglePhaseFoamVxi.C 
+pemfcFoam.C 
