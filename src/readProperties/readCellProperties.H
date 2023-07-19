@@ -2,6 +2,7 @@
 
     Info<< "Reading cell properties\n" << endl;
 
+    //Changed K.W.
     IOdictionary cellProperties
     (
         IOobject

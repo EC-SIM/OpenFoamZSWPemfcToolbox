@@ -55,7 +55,6 @@ Description
 #include "RiddersRoot.H"//added SBB
 #include "functionIntegration.H" //added (J.P.Kone, 26.10.2016)
 #include "functionElectrolyteResistance.H" //added (J.P.Kone, 26.10.2016)
-#include "functionTotalCurrent.H" //added (J.P.Kone, 01.11.2016)
 #include "funcTotalCurrent.H" //added (K.Wagner, 19.05.2020)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -118,9 +117,6 @@ int main(int argc, char *argv[])
 
     // Gas diffusivity models
 #   include "createDiffusivityModels.H"
-	
- 
-#   include "varInit.H"	//Added Qing, 25.06.2014
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -150,7 +146,7 @@ int main(int argc, char *argv[])
     #   include "solveFuel.H"
     #   include "solveCoolant.H"	//Coolant calculation (K.W 2020)
 
-    #   include "ReynoldsNumber.H"
+    // #   include "ReynoldsNumber.H" //Commented S.Schneider 07/2023
 
     #   include "diffusivityFuel.H"
     #   include "diffusivityAir.H"

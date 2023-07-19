@@ -1,7 +1,7 @@
 {
     Info << nl << "Solving air scalars" << endl;
     
-    fv::options& fvOptions = fvOptionsAir;
+    fv::options& fvOptions = fvOptionsAir; //Added S.Schneider
 
     tmp<fv::convectionScheme<scalar> > yConvection
     (
@@ -28,15 +28,7 @@
             volScalarField& Yi = Yair[i];
             volScalarField& diffAirS = diffSpAir[i];
 
-            /*    
-            solve
-            (
-                fvm::ddt(rhoAir, Yi)
-              + yConvection->fvmDiv(phiAir, Yi)
-              - fvm::laplacian(rhoAir*diffAirS, Yi, "laplacian(diff,y)"),
-                "Yi"
-            );
-            */
+            //Cahnged S. Schneider
             fvScalarMatrix YiEqn
             (
                 fvm::ddt(rhoAir, Yi)
@@ -44,13 +36,14 @@
               - fvm::laplacian(rhoAir*diffAirS, Yi, "laplacian(diff,y)")
             );
             
+            //Added S. Schneider
             fvOptions.constrain(YiEqn);
             
             YiEqn.solve();
             YiEqn.relax();
 
             //Yi.max(0.0);
-            Yi.max(Foam::doubleScalarSmall);
+            Yi.max(Foam::doubleScalarSmall); //Changed K.W.
             Yt += Yi;
         }
         else
@@ -63,7 +56,7 @@
     Info<< "inertIndex = " << inertIndex << nl;
     Yair[inertIndex] = scalar(1) - Yt;
     //Yair[inertIndex].max(0.0);
-    Yair[inertIndex].max(Foam::doubleScalarSmall);
+    Yair[inertIndex].max(Foam::doubleScalarSmall);  //Changed K.W.
 
     forAll(Yair, i)
     {

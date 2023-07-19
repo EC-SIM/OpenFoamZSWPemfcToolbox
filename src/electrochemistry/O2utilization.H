@@ -1,6 +1,6 @@
 // Code changed and adapted to pemfc electrochemistry (J.P.Kone, 27.05.2016)
 
-// for coversion to openfoam-5.0
+// for coversion to openfoam-5.0 K.W.
 // call to 'boundaryField()' is changed to 'boundaryFieldRef()' for all volScalarFields
 
 {

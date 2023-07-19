@@ -30,7 +30,7 @@ scalarField iLCathode(cathodePatch.size(), 0);
                     *Yair[s].boundaryFieldRef()[cathodeID]
                     *rhoAir.boundaryFieldRef()[cathodeID]
                     *diffSpAir[s].boundaryFieldRef()[cathodeID])
-                    /(airSpecies[s].MW()*(tMpl.value()+tSub.value()))  //Implementation of GDL as Substrat and MPL, Sabina Schneider 02.02.2020
+                    /(airSpecies[s].MW()*(tMpl.value()+tSub.value()))  //Implementation of GDL as Substrat and MPL, S. Schneider 02.02.2020
                 );
                 iLCathode *=1.0e+3;
         }          

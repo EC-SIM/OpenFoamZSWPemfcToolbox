@@ -97,7 +97,7 @@ forAll(airSpecies, a)
                         );
                         airDiffModels[m]->evaluate();
                         //Info << "hkr ->writeData() ";
-                        //airDiffModels[m]->writeData();
+                        //airDiffModels[m]->writeData(); //Commented S. Schneider
 
                         //Info<< "min mean max airDiff:"
                         //    << gMin(airDiff) << "  "

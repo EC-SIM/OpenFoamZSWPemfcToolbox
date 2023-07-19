@@ -58,7 +58,7 @@ Foam::myPorosityModels::myDarcyForchheimer::myDarcyForchheimer
     F_(cellZoneIDs_.size()),
     rhoName_(coeffs_.lookupOrDefault<word>("rho", "rho")),
     //Correction of porous calculation, thermo:mu is replaced by mu 
-    //Sabina Schneider 2020
+    //S. Schneider 2020
     muName_(coeffs_.lookupOrDefault<word>("mu", "mu")),		
     nuName_(coeffs_.lookupOrDefault<word>("nu", "nu"))
 {

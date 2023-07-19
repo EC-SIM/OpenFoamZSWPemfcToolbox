@@ -8,7 +8,7 @@ if (fuelCellType == "PEMFC")
     #include "sigmaElectrolyte.H"
 
     // ionic resistance (in the membrane)
-	//Calculation corrected 2021/04/21
+	//Calculation corrected 2021/04/21 S. Schneider
 	scalarField RiMem(cathodePatch.size());
 	forAll (RiMem, facei)
     {

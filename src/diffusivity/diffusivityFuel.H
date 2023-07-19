@@ -104,7 +104,7 @@ forAll(fuelSpecies, a)
                         );
                         fuelDiffModels[m]->evaluate();
                         //Info << "hkr ->writeData() ";
-                        //fuelDiffModels[m]->writeData();
+                        //fuelDiffModels[m]->writeData(); //Commented S. Schneider
 
                         //Info<< "min mean max fuelDiff:"
                         //    << gMin(fuelDiff) << "  "

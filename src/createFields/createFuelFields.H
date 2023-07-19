@@ -177,4 +177,5 @@
     }
     Info<< endl;
 
+//Added S.schneider    
 fv::options& fvOptionsFuel(fv::options::New(fuelMesh));

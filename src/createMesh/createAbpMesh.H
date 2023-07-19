@@ -1,5 +1,6 @@
     //abpMesh: anode side bipolarPlate mesh (J.P.Kone, 13.06.2016)
 
+    //Changed K.W.
     fvMesh abpMesh
     (
         IOobject

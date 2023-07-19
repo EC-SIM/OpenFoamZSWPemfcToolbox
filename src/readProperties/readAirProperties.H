@@ -18,19 +18,22 @@
     dimensionedScalar kA(airProperties.lookup("k"));
 
     // hydraulic diameter for Reynolds number calculation
-    dimensionedScalar dHydAir(airProperties.lookup("dHyd"));
+    //dimensionedScalar dHydAir(airProperties.lookup("dHyd")); //Commented S.Schneider 07/2023
 
     // echo input to output:
     Info << "    muA   = "    << muA       << nl
          << "    rhoA  = "    << rhoA      << nl
          << "    CpA   = "    << CpA       << nl
          << "    kA    = "    << kA        << nl
-         << "    dHydAir  = " << dHydAir   << nl
+         //<< "    dHydAir  = " << dHydAir   << nl //Commented S.Schneider 07/2023
          << endl;
 
+    //Commented S.Schneider 07/2023
+    /*
     bool ReA(true);
     if(dHydAir.value() == 0)
     {
         ReA = false;
         Info << "Hydraulic diameter = 0: not calculating ReAir" << nl << endl;
     } 
+    */

@@ -101,7 +101,7 @@ void myPatchToPatchInterpolation<FromPatch, ToPatch>::calcPointAddressing() cons
                 );
 
             // Grab distance to target
-            if (dir_ == intersection::direction::contactSphere)
+            if (dir_ == intersection::direction::contactSphere) //Change K.W. 
             {
                 pointDistance[pointi] =
                     hitFace.contactSphereDiameter

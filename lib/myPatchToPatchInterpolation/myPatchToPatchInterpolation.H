@@ -154,6 +154,7 @@ public:
     // Constructors
 
         //- Construct from components
+        //Changed K.W.
         myPatchToPatchInterpolation
         (
             const FromPatch& fromPatch,

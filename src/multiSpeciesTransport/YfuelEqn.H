@@ -28,16 +28,7 @@
             volScalarField& Yi = Yfuel[i];
             volScalarField& diffFuelS = diffSpFuel[i];
 
-            /*
-            solve
-            (
-                fvm::ddt(rhoFuel, Yi)
-              + yConvection->fvmDiv(phiFuel, Yi)
-              - fvm::laplacian(rhoFuel*diffFuelS, Yi, "laplacian(diff,y)"),
-                "Yi"
-            );
-            */
-            
+            //Changed S. Schneider
             fvScalarMatrix YiEqn
             (
                 fvm::ddt(rhoFuel, Yi)
@@ -45,6 +36,7 @@
               - fvm::laplacian(rhoFuel*diffFuelS, Yi, "laplacian(diff,y)")
             );
             
+            //Added S. Schneider
             fvOptions.constrain(YiEqn);
             
             YiEqn.solve();
@@ -52,7 +44,7 @@
             
 
             //Yi.max(0.0);
-            Yi.max(Foam::doubleScalarSmall);
+            Yi.max(Foam::doubleScalarSmall); //Changed K. W.
             Yt += Yi;
         }
         else
@@ -66,7 +58,7 @@
     Info<< "inertIndex = " << inertIndex << nl;
     Yfuel[inertIndex] = scalar(1) - Yt;
     //Yfuel[inertIndex].max(0.0);
-    Yfuel[inertIndex].max(Foam::doubleScalarSmall);
+    Yfuel[inertIndex].max(Foam::doubleScalarSmall); //Changed K. W.
 
     forAll(Yfuel, i)
     {

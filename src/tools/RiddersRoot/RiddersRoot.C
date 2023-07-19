@@ -180,7 +180,7 @@ scalar RiddersRoot<Func>::root
     }
     else
     {
-        
+        //Changed S. Schneider
         FatalErrorIn
         (
             "Foam::scalar Foam::RiddersRoot<Func>::root\n"

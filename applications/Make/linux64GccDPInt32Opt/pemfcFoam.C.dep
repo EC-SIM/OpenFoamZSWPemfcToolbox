@@ -20,7 +20,6 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedGradientFvPatchFields.H \
 ../src/tools/RiddersRoot/RiddersRoot.H \
 ../src/tools/functionIntegration/functionIntegration.H \
 ../src/tools/functions/functionElectrolyteResistance.H \
-../src/tools/functions/functionTotalCurrent.H \
 ../src/tools/functions/funcTotalCurrent.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCase.H \
@@ -54,7 +53,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H \
 ../src/electrochemistry/geometricParameter.H \
 ../src/patch/createPatchToPatchInterpolation.H \
 ../src/diffusivity/createDiffusivityModels.H \
-../src/constants/varInit.H \
 ../src/mapping/mapFromCell.H \
 ../src/physicalProperties/rhoFuel.H \
 ../src/physicalProperties/rhoAir.H \
@@ -65,7 +63,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H \
 ../src/momentumTransport/solveAir.H \
 ../src/momentumTransport/solveFuel.H \
 ../src/momentumTransport/solveCoolant.H \
-../src/tools/ReynoldsNumber/ReynoldsNumber.H \
 ../src/diffusivity/diffusivityFuel.H \
 ../src/diffusivity/diffusivityAir.H \
 ../src/multiSpeciesTransport/YairEqn.H \
@@ -876,7 +873,6 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedGradientFvPatchFields.H :
 ../src/tools/RiddersRoot/RiddersRoot.H :
 ../src/tools/functionIntegration/functionIntegration.H :
 ../src/tools/functions/functionElectrolyteResistance.H :
-../src/tools/functions/functionTotalCurrent.H :
 ../src/tools/functions/funcTotalCurrent.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCase.H :
@@ -910,7 +906,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H :
 ../src/electrochemistry/geometricParameter.H :
 ../src/patch/createPatchToPatchInterpolation.H :
 ../src/diffusivity/createDiffusivityModels.H :
-../src/constants/varInit.H :
 ../src/mapping/mapFromCell.H :
 ../src/physicalProperties/rhoFuel.H :
 ../src/physicalProperties/rhoAir.H :
@@ -921,7 +916,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H :
 ../src/momentumTransport/solveAir.H :
 ../src/momentumTransport/solveFuel.H :
 ../src/momentumTransport/solveCoolant.H :
-../src/tools/ReynoldsNumber/ReynoldsNumber.H :
 ../src/diffusivity/diffusivityFuel.H :
 ../src/diffusivity/diffusivityAir.H :
 ../src/multiSpeciesTransport/YairEqn.H :

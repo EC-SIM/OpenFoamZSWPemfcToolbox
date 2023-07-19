@@ -6,7 +6,7 @@
 {
     Info << nl << "Solving energy" << endl;
     
-    fv::options& fvOptions = fvOptionsCell;
+    fv::options& fvOptions = fvOptionsCell; //Added S. Schneider
 
     fvScalarMatrix TcellEqn
     (
@@ -21,7 +21,8 @@
     // thermal inertia.  HJ, 25/May/2011
     //TcellEqn.relax();
 
-    fvOptions.constrain(TcellEqn);
+    fvOptions.constrain(TcellEqn);  //Added S. Schneider
+    
     // Solve
     TcellEqn.solve();
 
