@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      Material;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+subVrX			5.88E+11;
+subVrY			5.88E+11;
+subVrZ			3.64E+11;
+subPor			0.64;
+subK			5.510;
+subCp			700.0;
+subTor			1.5;
+subDp			26.4e-06;
+subElCon		500;
+subL			1.75e-4;
+
+mplVrX			7.23E+14;
+mplVrY			7.23E+14;
+mplVrZ			7.23E+14;
+mplPor			0.56;
+mplK			5.510;
+mplCp			700.0;
+mplTor			1.5;
+mplDp			26.4e-06;
+mplElCon		500;
+mplL			3e-5;
+
+clAnVrX			1e15;
+clAnVrY			1e15;
+clAnVrZ			1e15;
+clAnPor			0.4;
+clAnK			2.15;
+clAnCp			700.0;
+clAnTor			1.5;
+clAnDp			119e-09;
+clAnElCon		5000;
+clAnL			9e-6;
+
+clCatVrX		1e15;
+clCatVrY		1e15;
+clCatVrZ		1e15;
+clCatPor		0.4;
+clCatK			2.15;
+clCatCp			700.0;
+clCatTor		1.5;
+clCatDp			119e-09;
+clCatElCon		$clAnElCon;
+clCatL			9e-6;
+
+bppCp			871.0;
+bppK			20.0;
+bppRho			2719.0;
+bppElCon		2000;
+bppL			2e-3;
+
+memRho			1980.0;
+memCp			2000.0;
+memk			0.36;
+memElCon		1e-16;
+// ************************************************************************* //

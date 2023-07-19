@@ -1,0 +1,33 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      rxnProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// species stoichiometric coefficients for electrochemical reaction
+// "e" is a required rxnSpecie
+// coefficient of "e" is unsigned number of electrons transferred
+// 
+// H2 -2e + 0.5(O2) +2e --> H2O
+
+// name   stoichCoeff
+
+rxnSpecies
+(
+    H2   1   
+    O2   0.5
+    H2O  1 
+    e    2
+);
+

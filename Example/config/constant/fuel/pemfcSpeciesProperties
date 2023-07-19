@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/fuel";
+    object      pemfcSpeciesProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+speciesList
+(
+    H2
+    H2O
+    N2
+);
+
+
+// name
+// molecular weight
+// molecular charge (unsigned)
+// reaction flag: -1=consumed(reactant), 0=inert, 1=produced(product)
+// enthalpy of formation (0 for elements)
+// stoichiometric coefficient in electrochemical reaction
+
+H2      H2    2.016  2  -1  0  130.68;
+H2O     H2O  18.016  0   0  -241.8349e3  188.835;
+N2      N2   28.02   0   0  0  191.609;
+//      |     |      |   |  |  |
+//      |     |      |   |  |  standardEntropy [J/(mol K)
+//      |     |      |   |  enthalpyOfFormation [J/mol]
+//      |     |      |   produced=1|inert=0|consumed=-1
+//      |     |      molecularChargeForFaradaysLaw
+//      |    molecularWeight [kg/kmol]
+//      name
+
+
+inertPemfcSpecie N2;  //inert for purposes of mass fraction calculation
+                       // not necessarily chemically inert
+
+
+// toddYoung polynomials
+// from Todd&Young, J. Power Sources 110 (2002) pp 186-200
+//
+// molar Cp coefficients (molar heat capacity) [J/(mol K)]
+CpCoeffs
+{
+    H2  21.157  56.036  -150.55  199.29  -136.15  46.903  -6.4725;
+    H2O 37.373  -41.205  146.01  -217.08  181.54  -79.409  14.015;
+    N2  29.027  4.8987  -38.040  105.17  -113.56  55.554  -10.350;
+}
+
+// mu coefficients (dynamic viscosity) [1e-7 kg/(m s)]
+muCoeffs
+{
+    H2   15.553  299.78  -244.34  249.41  -167.51  62.966  -9.9892;
+    H2O  -6.7541  244.93  419.50  -522.38  348.12  -126.96  19.591;
+    N2   1.2719  771.45  -809.20  832.47  -553.93  206.15  -32.430;
+}
+
+// k coefficients (thermal conductivity) [W/(m K)]
+kCoeffs
+{
+    H2   1.5040  62.892  -47.190  47.763  -31.939  11.972  -1.8954;
+    H2O  2.0103  -7.9139  35.922  -41.390  35.993  -18.974  4.1531;
+    N2  -0.3216  14.810  -25.473  38.837  -32.133  13.493  -2.2741;
+}
+
+// ************************************************************************* //
+

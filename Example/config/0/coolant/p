@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/fuel";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "$FOAM_CASE/boundaryConditions/Coolant"
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform $pOutCool;
+
+boundaryField
+{
+    coolant_in
+    {
+        type            zeroGradient;
+    }
+    
+    coolant_out
+    {
+        type            fixedValue;
+		value			$internalField;
+    }
+    
+    ".*symmetry.*"
+    {
+        type            symmetry;
+    }
+    
+    ".*_to_.*"
+    {
+       type            zeroGradient;
+    }
+    
+    ".*periodic.*"
+    {
+        type            symmetry;
+    }
+    
+
+}
+
+// ************************************************************************* //

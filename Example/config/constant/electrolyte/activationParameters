@@ -1,0 +1,43 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/electrolyte";
+    object      activationParameters;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "$FOAM_CASE/boundaryConditions/Electrochemistry"
+
+
+i0CathodeReference	i0CathodeReference    	[0 -2 0 0 0 1 0]	$iOCat;
+i0AnodeReference    i0AnodeReference    	[0 -2 0 0 0 1 0]	$i0An; 
+
+ECathode        	ECathode     			[1 2 -2 0 1 0 0]    $ECat;
+EAnode          	EAnode       			[1 2 -2 0 1 0 0]	$EAn;
+
+alphaCathode    	alphaCathode 			[0 0 0 0 0 0 0]     $alphaCat;
+alphaAnode      	alphaAnode   			[0 0 0 0 0 0 0]     $alphaAn;  
+
+conExponentC 		conExponentC			[0 0 0 0 0 0 0]		$ConExCat;
+conExponentA 		conExponentA			[0 0 0 0 0 0 0]		$ConExAn;
+
+refConC				refConC					[0 -3 0 0 1 0 0]	$refConCat;
+refConA				refConA					[0 -3 0 0 1 0 0]	$refConAn;
+
+iLeak				iLeak					[0 -2 0 0 0 1 0]	$iLeak;
+
+fRidders            fRidders                [0 0 0 0 0 0 0]     $fRidders;
+
+TRefA               TRefA                   [0 0 0 1 0 0 0]     $trefAn; 
+TRefC               TRefC                   [0 0 0 1 0 0 0]     $trefCat; 
+
+// ************************************************************************* //

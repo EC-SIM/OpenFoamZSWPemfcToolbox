@@ -1,0 +1,3 @@
+#!/bin/bash
+#-------------------------------------------------
+pemfcFoam >pemfcFoam.serial.log

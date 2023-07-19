@@ -1,0 +1,159 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/air";
+    object      porosityProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "$FOAM_CASE/boundaryConditions/Material"
+
+an_mpl
+{
+    type            myDarcyForchheimer;
+    active          true;
+    cellZone        an_mpl;
+    
+    porosity        $mplPor;
+
+    Cp              Cp [0 2 -2 -1 0 0 0]    $mplK;
+    k               k  [1 1 -3 -1 0 0 0]    $mplCp;
+        
+    myDarcyForchheimerCoeffs
+    {
+        d   d [0 -2 0 0 0 0 0] ($subVrX $subVrY $subVrZ);
+        f   f [0 -1 0 0 0 0 0] (0 0 0);
+        
+        coordinateSystem
+        {
+            type    cartesian;
+            origin  (0 0 0);
+            coordinateRotation
+            {
+                type    axesRotation;
+                e1      (1 0 0);
+                e2      (0 0 1);
+            }
+        }
+    }
+    
+    diffusivity
+    {
+        //type        fixedDiffusivity;
+        //diff0       diff0 [0 2 -1 0 0 0 0]  9.732e-6;
+        // ------------------------------------------ //
+        type        porousFSG;
+        Tname       T;
+        pName       p;
+        speciesA    H2;     // diffusing species
+        speciesB    H2O;     // background species
+        speciesC    N2;     // background species
+        porosity    $mplPor;
+        tortuosity  $mplTor;
+        dPore       dPore [0 1 0 0 0 0 0] $mplDp;   // pore size
+        doBinary    false;
+    }  
+}    
+
+an_sub
+{
+    type            myDarcyForchheimer;
+    active          true;
+    cellZone        an_sub;
+    
+    porosity        $subPor;
+
+    Cp              Cp [0 2 -2 -1 0 0 0]    $subCp;
+    k               k  [1 1 -3 -1 0 0 0]    $subK;
+        
+    myDarcyForchheimerCoeffs
+    {
+        d   d [0 -2 0 0 0 0 0] ($subVrX $subVrY $subVrZ);
+        f   f [0 -1 0 0 0 0 0] (0 0 0);
+        
+        coordinateSystem
+        {
+            type    cartesian;
+            origin  (0 0 0);
+            coordinateRotation
+            {
+                type    axesRotation;
+                e1      (1 0 0);
+                e2      (0 0 1);
+            }
+        }
+    }
+    
+    diffusivity
+    {
+        //type        fixedDiffusivity;
+        //diff0       diff0 [0 2 -1 0 0 0 0]  9.732e-6;
+        // ------------------------------------------ //
+        type        porousFSG;
+        Tname       T;
+        pName       p;
+        speciesA    H2;     // diffusing species
+        speciesB    H2O;     // background species
+        speciesC    N2;     // background species
+        porosity    $subPor;
+        tortuosity  $subTor;
+        dPore       dPore [0 1 0 0 0 0 0] $subDp;   // pore size
+        doBinary    false;
+    }  
+}    
+
+an_cl
+{
+    type            myDarcyForchheimer;
+    active          true;
+    cellZone        an_cl;
+        
+    porosity        $clAnPor;
+
+    Cp              Cp [0 2 -2 -1 0 0 0]    $clAnCp;
+    k               k  [1 1 -3 -1 0 0 0]    $clAnK;
+
+    myDarcyForchheimerCoeffs
+    {
+        d   d [0 -2 0 0 0 0 0] ($clAnVrX $clAnVrY $clAnVrZ);
+        f   f [0 -1 0 0 0 0 0] (0 0 0);
+        
+        coordinateSystem
+        {
+            type    cartesian;
+            origin  (0 0 0);
+            coordinateRotation
+            {
+                type    axesRotation;
+                e1      (1 0 0);
+                e2      (0 0 1);
+            }
+        }
+    }
+
+    diffusivity
+    {
+        //type        fixedDiffusivity;
+        //diff0       diff0 [0 2 -1 0 0 0 0]  7.785e-6;
+        // ------------------------------------------ //
+        type        porousFSG;
+        Tname       T;
+        pName       p;
+        speciesA    H2;     // diffusing species
+        speciesB    N2O;     // background species
+        speciesC    N2;     // background species
+        porosity    $clAnPor;
+        tortuosity  $clAnTor;
+        dPore       dPore [0 1 0 0 0 0 0] $clAnDp;   // ccl pore size
+        doBinary    false;
+    }
+}
+// ************************************************************************* //

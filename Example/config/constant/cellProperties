@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      cellProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "$FOAM_CASE/boundaryConditions/Electrochemistry"
+#include "$FOAM_CASE/boundaryConditions/Air"
+#include "$FOAM_CASE/boundaryConditions/Fuel"
+#include "$FOAM_CASE/boundaryConditions/Coolant"
+#include "$FOAM_CASE/boundaryConditions/Material"
+
+// run mode
+// true ==> galvanostatic
+// false ==> potentiostatic
+//
+galvanostatic true;
+
+// voltage
+// galvanostatic ==> initial value
+// potentiostatic ==> prescribed value
+//
+voltage			V           [1 2 -3 0 0 -1 0]       $UStart; // volts
+
+// mean current density
+// galvanostatic ==> prescribed value
+// potentiostatic ==> initial value
+//
+Ibar0            Ibar0       [0 -2 0 0 0 1 0]     $ISet; // amperes/m^2
+
+// available fuel cell types: PEMFC
+fuelCellType     PEMFC;
+
+// voltage correction relaxation coefficient for galvanostatic run
+//
+Rhat             Rhat        [1 4 -3 0 0 -2 0]    1e-6; // ohm m^2
+
+// pre-iteration
+PreIterAct     PreIterAct    [0 0 0 0 0 0 0]    0;    //pre-iteration for activation term
+
+// initial Temperature for fuel and air T fields
+Tinit		 Tinit       [0 0 0 1 0 0 0]      $TInC; // K
+TinitCoolant		 TinitCoolant     [0 0 0 1 0 0 0]      $TInCool; // K
+numCells	 numCells    [0 0 0 0 0 0 0]           $nCell; 
+
+// components electronic conductivity - Siemens per meter (S/m)
+kappaCl          kappaCl     [-1 -2 3 0 0 2 0]       $clAnElCon;
+kappaMpl         kappaMpl    [-1 -2 3 0 0 2 0]       $mplElCon;
+kappaSub         kappaSub    [-1 -2 3 0 0 2 0]       $subElCon;
+kappaBp          kappaBp     [-1 -2 3 0 0 2 0]       $bppElCon;
+
+// contact resistance (GDL - BP)
+rContact         rContact    [1 4 -3 0 0 -2 0]    0; //ohm*m^2 xxxxx
+
+// components thickness (m) 
+tCl              tCl         [0 1 0 0 0 0 0]        #calc "($clAnL + $clCatL) / 2"; 
+tMpl             tMpl        [0 1 0 0 0 0 0]        $mplL;
+tSub             tSub        [0 1 0 0 0 0 0]     	$subL;
+tBp              tBp         [0 1 0 0 0 0 0]      	$bppL;
+
+// components porosity
+epsilonSub       epsilonSub  [0 0 0 0 0 0 0]        $subPor;
+epsilonMpl       epsilonMpl  [0 0 0 0 0 0 0]        $mplPor;
+epsilonCl        epsilonCl   [0 0 0 0 0 0 0]        #calc "($clAnPor + $clCatPor) / 2"; 
+
+
+// special patch names
+fuelInletPatch               an_in;
+fuelOutletPatch              an_out;
+anodePatch                   fuel_to_electrolyte;
+fuelAbpPatch                 fuel_to_abp;
+
+airInletPatch                cat_in;
+airOutletPatch               cat_out;
+cathodePatch                 air_to_electrolyte;
+airCbpPatch                  air_to_cbp;
+
+electrolyteAnodePatch        electrolyte_to_fuel;
+electrolyteCathodePatch      electrolyte_to_air;
+
+abpFuelPatch                 abp_to_fuel;
+cbpAirPatch                  cbp_to_air;
+
+cbpCoolantPatch		     cbp_to_coolant;
+coolantCbpPatch		     coolant_to_cbp;
+
+abpCoolantPatch		     abp_to_coolant;
+coolantAbpPatch		     coolant_to_abp;
+
+coolantInletPatch               coolant_in;
+coolantOutletPatch              coolant_out;
+// ************************************************************************* //
+

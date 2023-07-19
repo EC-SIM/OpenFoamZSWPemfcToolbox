@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      Electrochemistry;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+i0An            1000;
+EAn             17e3;
+alphaAn         0.5;
+ConExAn         1;
+refConAn        0.034;
+trefAn          353.15;
+
+iOCat           0.08;
+ECat            67e3;
+alphaCat        0.5;
+ConExCat        1;
+refConCat       0.034;
+trefCat         353.15;
+
+iLeak			0;
+
+fRidders        10;
+
+ISet			19000;
+UStart			0.8;
+
+nCell			1;
+
+
+// ************************************************************************* //

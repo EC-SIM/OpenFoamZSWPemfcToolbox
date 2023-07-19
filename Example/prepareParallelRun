@@ -1,0 +1,117 @@
+#!/bin/bash
+#-------------------------------------------------
+NPROCS=`cat system/decomposeParDict | grep "numberOfSub" | awk '{print $2}' | sed -e 's/;//g'`
+
+echo "Number of processors :"$NPROCS
+
+echo "Decompose regions"
+cp system/decomposeParDict system/air
+cp system/decomposeParDict system/fuel
+cp system/decomposeParDict system/electrolyte
+cp system/decomposeParDict system/coolant
+cp system/decomposeParDict system/abp
+cp system/decomposeParDict system/cbp
+
+decomposePar -region air >& decomposePar.air.log
+decomposePar -region fuel >& decomposePar.fuel.log
+decomposePar -region electrolyte >& decomposePar.electrolyte.log
+decomposePar -region coolant >& decomposePar.coolant.log
+decomposePar -region abp >& decomposePar.abp.log
+decomposePar -region cbp >& decomposePar.cbp.log
+
+#-------------------------------------------------
+#Rename processor
+
+echo "Rename processor to proc_"
+i="0"
+while [ $i -lt $NPROCS ]
+do
+    mv processor$i proc_$i
+    i=$[$i+1]
+done 
+
+#-------------------------------------------------
+#Decompose global mesh 
+
+echo "Decompose global mesh"
+decomposePar >& decompose.Global.log
+
+#-------------------------------------------------
+#Split Mesh Regions parallel
+echo "splitMeshRegions parallel"
+mpirun -np $NPROCS splitMeshRegions -cellZonesOnly -parallel -overwrite >& split.parallel.log
+
+#-------------------------------------------------
+echo "Remove mesh from processor 0 directories and field files from the processor constant directories"
+# remove mesh files from the processor 0 directories
+# find processor*/0 -name polyMesh -exec rm -r {} \;
+find processor*/0 -name cellToRegion -exec rm {} \;
+# remove field files from the processor constant directories
+find processor*/constant -name 'diff*' -exec rm {} \;
+find processor*/constant -name '[kpTU]' -exec rm {} \;
+find processor*/constant -name 'rho' -exec rm {} \;
+find processor*/constant -name 'Y*' -exec rm {} \;
+
+#-------------------------------------------------
+#Define CellZones
+#Copy config to processor
+
+echo "Defining CellZones in region air and fuel"
+i="0"
+
+while [ $i -lt $NPROCS ]
+do
+    cp -r config ./"processor"$i
+    i=$[$i+1]
+done 
+
+cp -rf ./config/system/air/topoSetDict.cellSetsAir ./system/air/topoSetDict
+mpirun -np $NPROCS topoSet -region air -parallel >& topoSetDict.cellSetsAir.parallel.log
+
+cp -rf ./config/system/fuel/topoSetDict.cellSetsFuel ./system/fuel/topoSetDict
+mpirun -np $NPROCS topoSet -region fuel -parallel >& topoSetDict.cellSetsFuel.parallel.log
+
+
+#-------------------------------------------------
+#Copy zero Folder
+
+echo "Copy fields zero directories to processors"
+I="0"
+while [ $I -lt $NPROCS ]
+do
+    for REGION in air fuel coolant
+    do
+        echo $REGION
+        SRCD=proc_$I/0
+        DESTD=processor$I/
+        cp -rv $SRCD/ $DESTD
+    done
+    echo "processor"$I "done"
+    I=$[$I+1]
+done
+
+#-------------------------------------------------
+#Copy
+# copy *ProcAddressing files from earlier region decomposition
+# to processor region meshes
+
+echo "Copy *ProcAddressing files"
+I="0"
+while [ $I -lt $NPROCS ]
+do
+    for REGION in air fuel electrolyte coolant abp cbp
+    do
+        echo $REGION
+        SRCD=proc_$I/constant/$REGION/polyMesh
+        DESTD=processor$I/constant/$REGION/polyMesh
+        cp -v $SRCD/*ProcAddressing $DESTD
+    done
+    echo "processor"$I "done"
+    I=$[$I+1]
+done
+
+#-------------------------------------------------
+#remove proc Folder
+
+echo "Remove proc_ directories"
+rm -r proc_*
