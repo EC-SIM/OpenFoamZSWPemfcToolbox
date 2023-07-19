@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  4.0                                   |
+|  \\    /   O peration     | Version:  7.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -29,7 +29,7 @@ cat_mpl
         
     myDarcyForchheimerCoeffs
     {
-        d   d [0 -2 0 0 0 0 0] ($mplVrX $mplVrY $mplVrZ); //($subVrX $subVrY $subVrZ) alt;
+        d   d [0 -2 0 0 0 0 0] ($mplVrX $mplVrY $mplVrZ); 
         f   f [0 -1 0 0 0 0 0] (0 0 0);
         
         coordinateSystem

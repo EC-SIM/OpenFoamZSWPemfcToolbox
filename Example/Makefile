@@ -1,4 +1,5 @@
 ################################################################################
+# User can select between serial (runSerial) or parallel (runParallel) simulation
 All: clean mesh simulationSetup runParallel 
 mesh: bmesh regionMesh defineZones
 ###############
@@ -10,7 +11,9 @@ clean:
 	(rm -rf ./0/*)
 	(rm -rf ./processor*)
 	(foamListTimes -rm)
-	
+	(rm -rf ./system/blockMeshDict)
+	(rm -rf ./system/controlDict)
+	(rm -rf ./system/decomposeParDict)
 
 	(./Allclean)
 ###############
@@ -66,10 +69,5 @@ runSerial:
 	(cp -rf ./config/system/controlDict.run ./system/controlDict)
 	(./serialRun)
 
-
-
-	
-	
-	
 
 ################################################################################

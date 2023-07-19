@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  4.0                                   |
+|  \\    /   O peration     | Version:  7.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -20,11 +20,6 @@ rho             rho     [1 -3 0 0 0 0 0]       0.2483;
 mu              mu      [1 -1 -1 0 0 0 0]     1.5e-5;
 Cp              Cp      [0 2 -2 -1 0 0 0]     2062.74;
 k               k       [1 1 -3 -1 0 0 0]     0.08396;
-
-// hydraulic diameter for Reynolds Number calculation
-// code will skip calculation if value = 0
-//dHyd            dHyd    [0 1 0 0 0 0 0]      0;
-dHyd            dHyd    [0 1 0 0 0 0 0]      1.0e-3;
 
 diffusivity
 {

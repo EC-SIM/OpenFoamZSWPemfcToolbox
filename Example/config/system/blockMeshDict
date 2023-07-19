@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  4.0                                   |
+|  \\    /   O peration     | Version:  7.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -19,22 +19,22 @@ FoamFile
 
 convertToMeters 0.001;
 
-t 300; //Length of channel
+t 300;                              //Length of channel
 
-h_coolant 0.3;	//height coolant channel
-h_BBP_C 1.3;	//height BPP cathode
-h_BBP_A_in 1.35;	//height BPP anode
-h_CH_C 0.4;	// heigth cathode channel
-h_SUB 0.175;	// height substrate
-h_MPL 0.03;		// heigth MPL
-h_CL_C 0.012;	// height catalyst cathode
-h_Mem 0.015;	// height membrane
-h_CL_A 0.006;	// height catalyst cathode
-h_CH_A_in 0.35;	// height anode inlet channel
-h_CH_A_out 0.3;	// height anode outlet channel	
+h_coolant 0.3;                      //height coolant channel
+h_BBP_C 1.3;	                    //height BPP cathode
+h_BBP_A_in 1.35;	                //height BPP anode
+h_CH_C 0.4;	                        //heigth cathode channel
+h_SUB 0.175;	                    //height substrate
+h_MPL 0.03;		                    //heigth MPL
+h_CL_C 0.012;	                    //height catalyst cathode
+h_Mem 0.015;	                    //height membrane
+h_CL_A 0.006;	                    //height catalyst cathode
+h_CH_A_in 0.35;	                    //height anode inlet channel
+h_CH_A_out 0.3;	                    //height anode outlet channel	
 
-s_land 0.5; // width land
-s_ch 0.5; // width channel
+s_land 0.5;                         //width land
+s_ch 0.5;                           //width channel
 
 y1 0;	
 y2 #calc "$s_ch * 0.5";
@@ -42,25 +42,24 @@ y3 #calc "$y2 + 0.5 * $s_land";
 y4 #calc "$y3 + 0.5 * $s_land";
 y5 #calc "$y4 + 0.5 * $s_ch";
 
-z1 #calc "$h_Mem / 2";	//membrane cathode
-z2 #calc "$z1 + $h_CL_C"; //catalyst cathode
-z3 #calc "$z2 + $h_MPL";	//MPL cathode
-z4 #calc "$z3 + $h_SUB";	//substrate cathode
-z5 #calc "$z4 + $h_CH_C";	//channel cathode
-z6 #calc "$z5 + $h_BBP_C";	// BPP cathode
-z7 #calc "$z6 + $h_coolant";	// coolant anode
+z1 #calc "$h_Mem / 2";              //membrane cathode
+z2 #calc "$z1 + $h_CL_C";           //catalyst cathode
+z3 #calc "$z2 + $h_MPL";	        //MPL cathode
+z4 #calc "$z3 + $h_SUB";	        //substrate cathode
+z5 #calc "$z4 + $h_CH_C";	        //channel cathode
+z6 #calc "$z5 + $h_BBP_C";	        // BPP cathode
+z7 #calc "$z6 + $h_coolant";	    // coolant anode
+
+z8 #calc "-$h_Mem / 2";	            //membrane anode
+z9 #calc "$z8 - $h_CL_A";	        //catalyst anode
+z10 #calc "$z9 - $h_MPL";	        //MPL anode
+z11 #calc "$z10 - $h_SUB";	        //substrate anode
 
 
-z8 #calc "-$h_Mem / 2";	//membrane anode
-z9 #calc "$z8 - $h_CL_A";	//catalyst anode
-z10 #calc "$z9 - $h_MPL";	//MPL anode
-z11 #calc "$z10 - $h_SUB";	//substrate anode
-
-
-z12_1 #calc "$z11 - $h_CH_A_out"; //ch anode out
-z12_2 #calc "$z11 - $h_CH_A_in"; //ch anode in
-z13 #calc "$z12_2 - $h_BBP_A_in"; //BPP anode
-z14 #calc "$z13 - $h_coolant"; 	//coolant anode
+z12_1 #calc "$z11 - $h_CH_A_out";   //ch anode out
+z12_2 #calc "$z11 - $h_CH_A_in";    //ch anode in
+z13 #calc "$z12_2 - $h_BBP_A_in";   //BPP anode
+z14 #calc "$z13 - $h_coolant"; 	    //coolant anode
 
 x1 0;
 x2 $t;
@@ -68,7 +67,6 @@ x2 $t;
 nx 1000;
 ny 10;
 nMem 5;
-
 
 
 vertices
@@ -172,7 +170,6 @@ vertices
 	($x1  $y5  $z7)	//68
 	($x2  $y5  $z7)	//69
 	
-
 	//membrane
 	($x1  $y1  $z8)	//70
 	($x2  $y1  $z8)	//71
@@ -373,9 +370,9 @@ edges
 
 boundary
 (
-	cat_in              // patch name
+	cat_in              
     {
-		type patch;    // patch type for patch 0
+		type patch;    
 		faces
 		(
 			(30 40 32 42)  
@@ -383,10 +380,9 @@ boundary
 		);
 	}    
 	
-		//cathode inlet
-	cat_out              // patch name
+	cat_out             
     {
-		type patch;    // patch type for patch 0
+		type patch;    
 		faces
 		(
 			(31 41 33 43)  
@@ -394,9 +390,9 @@ boundary
 		);
 	}  
 	
-	coolant_in              // patch name
+	coolant_in             
     {
-		type patch;    // patch type for patch 0
+		type patch;   
 		faces
 		(
 			(50 60 62 52)  
@@ -406,9 +402,9 @@ boundary
 		);
 	}
 	
-	coolant_out              // patch name
+	coolant_out           
     {
-		type patch;    // patch type for patch 0
+		type patch;   
 		faces
 		(
 			(51 61 63 53)  
@@ -418,30 +414,27 @@ boundary
 		);
 	}
 	
-
-	an_in              // patch name
+	an_in              
     {
-		type patch;    // patch type for patch 0
+		type patch;    
 		faces
 		(
 			(111 101 103 113)  
 		);
 	}
 	
-	
-	an_out              // patch name
+	an_out              
     {
-		type patch;    // patch type for patch 0
+		type patch;   
 		faces
 		(
 			(110 100 102 112)  
 		);
 	}
 	
-	
-	symmetry_ch             // patch name
+	symmetry_ch             
     {
-		type symmetry;    // patch type for patch 0
+		type symmetry;    
 		faces
 		(
 			(130 131 121 120)

@@ -1,13 +1,13 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  4.0                                   |
+|  \\    /   O peration     | Version:  7.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
+    version     7.0;
     format      ascii;
     class       dictionary;
     object      topoSetDict;
@@ -19,20 +19,20 @@ FoamFile
 
 
 
-h_KK #calc "0.3 / 1000";	//height coolant channel
-h_BBP_C #calc "1.3 / 1000";	//height BPP cathode
-h_BBP_A_in #calc "1.35 / 1000";	//height BPP anode
-h_GK_C #calc "0.4 / 1000";	// heigth cathode channel
-h_SUB #calc "0.175 / 1000";	// height substrate
-h_MPL #calc "0.03 / 1000";		// heigth MPL
-h_CL_C #calc "0.012 / 1000";	// height catalyst cathode
-h_Mem #calc "0.015 / 1000";	// height membrane
-h_CL_A #calc "0.006 / 1000";	// height catalyst cathode
-h_GK_A_in #calc "0.35 / 1000";	// height anode inlet channel
-h_GK_A_out #calc "0.3 / 1000";	// height anode outlet channel	
+h_KK #calc "0.3 / 1000";	        //height coolant channel
+h_BBP_C #calc "1.3 / 1000";	        //height BPP cathode
+h_BBP_A_in #calc "1.35 / 1000";	    //height BPP anode
+h_GK_C #calc "0.4 / 1000";	        //heigth cathode channel
+h_SUB #calc "0.175 / 1000";	        //height substrate
+h_MPL #calc "0.03 / 1000";		    //heigth MPL
+h_CL_C #calc "0.012 / 1000";	    //height catalyst cathode
+h_Mem #calc "0.015 / 1000";	        //height membrane
+h_CL_A #calc "0.006 / 1000";	    //height catalyst cathode
+h_GK_A_in #calc "0.35 / 1000";	    //height anode inlet channel
+h_GK_A_out #calc "0.3 / 1000";	    //height anode outlet channel	
 
-s_land #calc "0.5 / 1000"; // width land
-s_ch #calc "0.5 / 1000"; // width channel
+s_land #calc "0.5 / 1000";          //width land
+s_ch #calc "0.5 / 1000";            //width channel
 
 y1 0;	
 y2 #calc "$s_ch * 0.5";
@@ -40,25 +40,25 @@ y3 #calc "$y2 + 0.5 * $s_land";
 y4 #calc "$y3 + 0.5 * $s_land";
 y5 #calc "$y4 + 0.5 * $s_ch";
 
-z1 #calc "$h_Mem / 2";	//membrane cathode
-z2 #calc "$z1 + $h_CL_C"; //catalyst cathode
-z3 #calc "$z2 + $h_MPL";	//MPL cathode
-z4 #calc "$z3 + $h_SUB";	//substrate cathode
-z5 #calc "$z4 + $h_GK_C";	//channel cathode
-z6 #calc "$z5 + $h_BBP_C";	// BPP cathode
-z7 #calc "$z6 + $h_KK";	// coolant anode
+z1 #calc "$h_Mem / 2";	            //membrane cathode
+z2 #calc "$z1 + $h_CL_C";           //catalyst cathode
+z3 #calc "$z2 + $h_MPL";	        //MPL cathode
+z4 #calc "$z3 + $h_SUB";	        //substrate cathode
+z5 #calc "$z4 + $h_GK_C";	        //channel cathode
+z6 #calc "$z5 + $h_BBP_C";	        //BPP cathode
+z7 #calc "$z6 + $h_KK";	            //coolant anode
 
 
-z8 #calc "-$h_Mem / 2";	//membrane anode
-z9 #calc "$z8 - $h_CL_A";	//catalyst anode
-z10 #calc "$z9 - $h_MPL";	//MPL anode
-z11 #calc "$z10 - $h_SUB";	//substrate anode
+z8 #calc "-$h_Mem / 2";	            //membrane anode
+z9 #calc "$z8 - $h_CL_A";	        //catalyst anode
+z10 #calc "$z9 - $h_MPL";	        //MPL anode
+z11 #calc "$z10 - $h_SUB";	        //substrate anode
 
 
-z12_1 #calc "$z11 - $h_GK_A_out"; //ch anode out
-z12_2 #calc "$z11 - $h_GK_A_in"; //ch anode in
-z13 #calc "$z12_2 - $h_BBP_A_in"; //BPP anode
-z14 #calc "$z13 - $h_KK"; 	//coolant anode
+z12_1 #calc "$z11 - $h_GK_A_out";   //ch anode out
+z12_2 #calc "$z11 - $h_GK_A_in";    //ch anode in
+z13 #calc "$z12_2 - $h_BBP_A_in";   //BPP anode
+z14 #calc "$z13 - $h_KK"; 	        //coolant anode
 
 x1 0;
 x2 0.3;
