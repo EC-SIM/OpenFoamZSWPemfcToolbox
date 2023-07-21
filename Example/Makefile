@@ -12,7 +12,6 @@ clean:
 	(rm -rf ./processor*)
 	(foamListTimes -rm)
 	(rm -rf ./system/blockMeshDict)
-	(rm -rf ./system/controlDict)
 	(rm -rf ./system/decomposeParDict)
 
 	(./Allclean)
