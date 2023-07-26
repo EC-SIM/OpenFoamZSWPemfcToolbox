@@ -82,6 +82,8 @@ https://www.zsw-bw.de/en/newsroom/news/news-detail/news/detail/News/fuel-cell-po
 
 https://www.now-gmbh.de/en/projectfinder/autostack-industrie/
 
+![Logo ASI](ASI.png) ![Logo BMVI](BMVI.png) ![Logo NOW](NOW.png) ![Logo NIP](NIP.png)
+
 <!---
 ## Funding
 
