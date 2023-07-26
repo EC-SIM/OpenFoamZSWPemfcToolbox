@@ -25,15 +25,17 @@ New implentations are:
 - implementation of coolant flowfield and MPL properties
 - more realistic membrane humidity: average of anode and cathode relative humidity
 - considering anode activation overpotential
-- simplified Butler-Vollmer equation for modelling of activation overpotential of anode and cathode
+- implementation of Butler-Vollmer equation (assumption: alpha equal on anode and cathode) for modelling of activation overpotential of anode and cathode
 - implementation of hydrogen crossover
 - implementation of "postProcessing" functionality of OpenFOAM
 - implementation of "fvOption" functionality of OpenFOAM (e.g. fixed values can be defined)
 
 A schematic description of the pemfcFoam solver and the convergence procedure are illustrated below.
 
+### Sketch of assumed cell setup
 ![Shematic description of pemfcFoam Solver](schematicDescription_pemfcFoam.png)
 
+### Convergence procedure
 ![Convergence procedure pemfcFoam solver](Convergence_procedure_pemfcFoam.png)
 
 ## Documentation
@@ -43,7 +45,7 @@ At the moment there is no formal documentation of the pemfcFOAM solver beside th
 The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory. Then OpenFOAM version must be loaded and the pemfcFoam code can be compiled by running Allwmake. 
 
 # Example
-An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the xxx.pdf file.
+An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the Example/xxx.pdf file.
 
 # Publications
 
@@ -52,7 +54,7 @@ An examplary case for the pemfcFOAM solver is prepared. It decribes a single cha
    **Advancement and validation of OpenFOAM PEMFC toolbox on automotive PEMFC design** <br />
    19th Symposium on Fuel Cell and Battery Modeling and Experimental Validation - MODVAL, Duisburg, Germany, 21 Mar 2023 - 23 Mar 2023
 2. Conference Presentation (Poster)  <br />
-   S. Schneider (Corresponding author), F. Wilhelm, J.Scholta, L.Jörissen, M. Koprek  <br />
+   S. Schneider (Corresponding author), F. Wilhelm, J. Scholta, L. Jörissen, M. Koprek  <br />
    **Advancement of an OpenFOAM PEMFC toolbox and its validation an an automotive cell design** <br />
    18th Ulm Electrochemical Talks - UECT, Ulm, Germany, 14 Jun 2023 - 15 Jun 2023
   
