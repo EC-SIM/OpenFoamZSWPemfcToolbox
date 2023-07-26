@@ -56,7 +56,8 @@ An examplary case for the pemfcFOAM solver is prepared. It decribes a single cha
 2. Conference Presentation (Poster)  <br />
    S. Schneider (Corresponding author), F. Wilhelm, J. Scholta, L. Jörissen, M. Koprek  <br />
    **Advancement of an OpenFOAM PEMFC toolbox and its validation an an automotive cell design** <br />
-   18th Ulm Electrochemical Talks - UECT, Ulm, Germany, 14 Jun 2023 - 15 Jun 2023
+   18th Ulm Electrochemical Talks - UECT, Ulm, Germany, 14 Jun 2023 - 15 Jun 2023 <br />
+   [2023_UECT_Poster_OpenFOAM_PEMFC](2023_UECT_Poster_OpenFOAM_PEMFC.pdf)
   
 
 
