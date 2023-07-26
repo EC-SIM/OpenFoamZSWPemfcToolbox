@@ -45,7 +45,7 @@ At the moment there is no formal documentation of the pemfcFOAM solver beside th
 The pemfcFoam solver can be used in OpenFOAM v7.To get started the OpenFoamZSWPemfcToolbox has to be copied to user home directory. Then OpenFOAM version must be loaded and the pemfcFoam code can be compiled by running Allwmake. 
 
 # Example
-An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the Example/xxx.pdf file.
+An examplary case for the pemfcFOAM solver is prepared. It decribes a single channel model of ZSW 300 cm² automotive design (graphite BPP) operated under automotive operating conditions. The detailed description can be found in the Example/Description_Example_pmfcFoam.pdf file.
 
 # Publications
 
