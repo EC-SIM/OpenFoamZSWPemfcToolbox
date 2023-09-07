@@ -1,0 +1,535 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        "constant/polyMesh";
+    object          blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+convertToMeters 0.001;
+
+t 300; //Length of channel
+
+h_coolant 0.3;	//height coolant channel
+h_BBP_C 1.3;	//height BPP cathode
+h_BBP_A_in 1.35;	//height BPP anode
+h_CH_C 0.4;	// heigth cathode channel
+h_SUB 0.175;	// height substrate
+h_MPL 0.03;		// heigth MPL
+h_CL_C 0.012;	// height catalyst cathode
+h_Mem 0.015;	// height membrane
+h_CL_A 0.006;	// height catalyst cathode
+h_CH_A_in 0.35;	// height anode inlet channel
+h_CH_A_out 0.3;	// height anode outlet channel	
+
+s_land 0.5; // width land
+s_ch 0.5; // width channel
+
+y1 0;	
+y2 #calc "$s_ch * 0.5";
+y3 #calc "$y2 + 0.5 * $s_land";
+y4 #calc "$y3 + 0.5 * $s_land";
+y5 #calc "$y4 + 0.5 * $s_ch";
+
+z1 #calc "$h_Mem / 2";	//membrane cathode
+z2 #calc "$z1 + $h_CL_C"; //catalyst cathode
+z3 #calc "$z2 + $h_MPL";	//MPL cathode
+z4 #calc "$z3 + $h_SUB";	//substrate cathode
+z5 #calc "$z4 + $h_CH_C";	//channel cathode
+z6 #calc "$z5 + $h_BBP_C";	// BPP cathode
+z7 #calc "$z6 + $h_coolant";	// coolant anode
+
+
+z8 #calc "-$h_Mem / 2";	//membrane anode
+z9 #calc "$z8 - $h_CL_A";	//catalyst anode
+z10 #calc "$z9 - $h_MPL";	//MPL anode
+z11 #calc "$z10 - $h_SUB";	//substrate anode
+
+
+z12_1 #calc "$z11 - $h_CH_A_out"; //ch anode out
+z12_2 #calc "$z11 - $h_CH_A_in"; //ch anode in
+z13 #calc "$z12_2 - $h_BBP_A_in"; //BPP anode
+z14 #calc "$z13 - $h_coolant"; 	//coolant anode
+
+x1 0;
+x2 $t;
+
+nx 1000;
+ny 3;
+nMem 5;
+
+
+
+vertices
+(	//Catalyst cathode
+    ($x1  $y1  $z1)	//0
+	($x2  $y1  $z1)	//1
+	($x1  $y2  $z1)	//2
+	($x2  $y2  $z1)	//3
+	($x1  $y1  $z2)	//4
+	($x2  $y1  $z2)	//5
+	($x1  $y2  $z2)	//6
+	($x2  $y2  $z2)	//7
+	
+	($x1  $y3  $z1)	//8
+	($x2  $y3  $z1)	//9
+	($x1  $y3  $z2)	//10
+	($x2  $y3  $z2)	//11
+	
+	($x1  $y4  $z1)	//12
+	($x2  $y4  $z1)	//13
+	($x1  $y4  $z2)	//14
+	($x2  $y4  $z2)	//15
+	
+	($x1  $y5  $z1)	//16
+	($x2  $y5  $z1)	//17
+	($x1  $y5  $z2)	//18
+	($x2  $y5  $z2)	//19
+	
+	//MPL cathode
+	($x1  $y1  $z3)	//20
+	($x2  $y1  $z3)	//21
+	($x1  $y2  $z3)	//22
+	($x2  $y2  $z3)	//23
+	
+	($x1  $y3  $z3)	//24
+	($x2  $y3  $z3)	//25
+	
+	($x1  $y4  $z3)	//26
+	($x2  $y4  $z3)	//27
+	
+	($x1  $y5  $z3)	//28
+	($x2  $y5  $z3)	//29
+	
+	//substrate cathode
+	($x1  $y1  $z4)	//30
+	($x2  $y1  $z4)	//31
+	($x1  $y2  $z4)	//32
+	($x2  $y2  $z4)	//33
+	
+	($x1  $y3  $z4)	//34
+	($x2  $y3  $z4)	//35
+	
+	($x1  $y4  $z4)	//36
+	($x2  $y4  $z4)	//37
+	
+	($x1  $y5  $z4)	//38
+	($x2  $y5  $z4)	//39
+	
+	//channel cathode
+	($x1  $y1  $z5)	//40
+	($x2  $y1  $z5)	//41
+	($x1  $y2  $z5)	//42
+	($x2  $y2  $z5)	//43
+	
+	($x1  $y3  $z5)	//44
+	($x2  $y3  $z5)	//45
+	
+	($x1  $y4  $z5)	//46
+	($x2  $y4  $z5)	//47
+	
+	($x1  $y5  $z5)	//48
+	($x2  $y5  $z5)	//49
+	
+	//BPP cathode
+	($x1  $y1  $z6)	//50
+	($x2  $y1  $z6)	//51
+	($x1  $y2  $z6)	//52
+	($x2  $y2  $z6)	//53
+	
+	($x1  $y3  $z6)	//54
+	($x2  $y3  $z6)	//55
+	
+	($x1  $y4  $z6)	//56
+	($x2  $y4  $z6)	//57
+	
+	($x1  $y5  $z6)	//58
+	($x2  $y5  $z6)	//59
+	
+	//coolant cathode
+	($x1  $y1  $z7)	//60
+	($x2  $y1  $z7)	//61
+	($x1  $y2  $z7)	//62
+	($x2  $y2  $z7)	//63
+	
+	($x1  $y3  $z7)	//64
+	($x2  $y3  $z7)	//65
+	
+	($x1  $y4  $z7)	//66
+	($x2  $y4  $z7)	//67
+	
+	($x1  $y5  $z7)	//68
+	($x2  $y5  $z7)	//69
+	
+
+	//membrane
+	($x1  $y1  $z8)	//70
+	($x2  $y1  $z8)	//71
+	($x1  $y2  $z8)	//72
+	($x2  $y2  $z8)	//73
+	
+	($x1  $y3  $z8)	//74
+	($x2  $y3  $z8)	//75
+	
+	($x1  $y4  $z8)	//76
+	($x2  $y4  $z8)	//77
+	
+	($x1  $y5  $z8)	//78
+	($x2  $y5  $z8)	//79
+	
+	//catalyst anode
+	($x1  $y1  $z9)	//80
+	($x2  $y1  $z9)	//81
+	($x1  $y2  $z9)	//82
+	($x2  $y2  $z9)	//83
+	
+	($x1  $y3  $z9)	//84
+	($x2  $y3  $z9)	//85
+	
+	($x1  $y4  $z9)	//86
+	($x2  $y4  $z9)	//87
+	
+	($x1  $y5  $z9)	//88
+	($x2  $y5  $z9)	//89
+	
+	//MPL anode
+	($x1  $y1  $z10)	//90
+	($x2  $y1  $z10)	//91
+	($x1  $y2  $z10)	//92
+	($x2  $y2  $z10)	//93
+	
+	($x1  $y3  $z10)	//94
+	($x2  $y3  $z10)	//95
+	
+	($x1  $y4  $z10)	//96
+	($x2  $y4  $z10)	//97
+	
+	($x1  $y5  $z10)	//98
+	($x2  $y5  $z10)	//99
+	
+	//substrate anode
+	($x1  $y1  $z11)	//100
+	($x2  $y1  $z11)	//101
+	($x1  $y2  $z11)	//102
+	($x2  $y2  $z11)	//103
+	
+	($x1  $y3  $z11)	//104
+	($x2  $y3  $z11)	//105
+	
+	($x1  $y4  $z11)	//106
+	($x2  $y4  $z11)	//107
+	
+	($x1  $y5  $z11)	//108
+	($x2  $y5  $z11)	//109
+	
+	//channel anode
+	($x1  $y1  $z12_1)	//110
+	($x2  $y1  $z12_2)	//111
+	($x1  $y2  $z12_1)	//112
+	($x2  $y2  $z12_2)	//113
+	
+	($x1  $y3  $z12_1)	//114
+	($x2  $y3  $z12_2)	//115
+	
+	($x1  $y4  $z12_1)	//116
+	($x2  $y4  $z12_2)	//117
+	
+	($x1  $y5  $z12_1)	//118
+	($x2  $y5  $z12_2)	//119
+	
+	//BPP anode
+	($x1  $y1  $z13)	//120
+	($x2  $y1  $z13)	//121
+	($x1  $y2  $z13)	//122
+	($x2  $y2  $z13)	//123
+	
+	($x1  $y3  $z13)	//124
+	($x2  $y3  $z13)	//125
+	
+	($x1  $y4  $z13)	//126
+	($x2  $y4  $z13)	//127
+	
+	($x1  $y5  $z13)	//128
+	($x2  $y5  $z13)	//129
+	
+	//coolant anode
+	($x1  $y1  $z14)	//130
+	($x2  $y1  $z14)	//131
+	($x1  $y2  $z14)	//132
+	($x2  $y2  $z14)	//133
+	
+	($x1  $y3  $z14)	//134
+	($x2  $y3  $z14)	//135
+	
+	($x1  $y4  $z14)	//136
+	($x2  $y4  $z14)	//137
+	
+	($x1  $y5  $z14)	//138
+	($x2  $y5  $z14)	//139
+
+
+
+);
+
+blocks          
+(
+	
+	//catalyst cathode
+    hex ( 0   1   3   2   4   5   7   6) air ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 2   3   9   8   6   7   11   10) air ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 8   9   13   12   10   11   15   14) air ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 12   13   17   16   14   15   19   18) air ($nx $ny 3) simpleGrading (1 1 1)
+	
+	//MPl cathode
+	hex ( 4   5   7   6   20   21   23   22) air ($nx $ny 3) simpleGrading (1 1 3)
+	hex ( 6   7   11   10   22   23   25   24) air ($nx $ny 3) simpleGrading (1 1 3)
+	hex ( 10   11   15   14   24   25   27   26) air ($nx $ny 3) simpleGrading (1 1 3)
+	hex ( 14   15   19   18   26   27   29   28) air ($nx $ny 3) simpleGrading (1 1 3)
+	
+	//Substrate cathode
+	hex ( 20   21   23   22   30   31   33   32) air ($nx $ny 5) simpleGrading (1 1 3)
+	hex ( 22   23   25   24   32   33   35   34) air ($nx $ny 5) simpleGrading (1 1 3)
+	hex ( 24   25   27   26   34   35   37   36) air ($nx $ny 5) simpleGrading (1 1 3)
+	hex ( 26   27   29   28   36   37   39   38) air ($nx $ny 5) simpleGrading (1 1 3)
+	
+	//channel cathode
+	hex ( 30   31   33   32   40   41   43   42) air ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 32   33   35   34   42   43   45   44) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 34   35   37   36   44   45   47   46) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 36   37   39   38   46   47   49   48) air ($nx $ny 5) simpleGrading (1 1 1)
+	
+	//BPP cathode
+	hex ( 40   41   43   42   50   51   53   52) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 42   43   45   44   52   53   55   54) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 44   45   47   46   54   55   57   56) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 46   47   49   48   56   57   59   58) cbp ($nx $ny 5) simpleGrading (1 1 1)
+	
+	//coolant cathode
+	hex ( 50   51   53   52   60   61   63   62) coolant ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 52   53   55   54   62   63   65   64) coolant ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 54   55   57   56   64   65   67   66) cbp ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 56   57   59   58   66   67   69   68) cbp ($nx $ny 3) simpleGrading (1 1 1)
+	
+	//membrane
+	hex ( 70   71   73   72   0   1   3   2) electrolyte ($nx $ny $nMem) simpleGrading (1 1 1)
+	hex ( 72   73   75   74   2   3   9   8) electrolyte ($nx $ny $nMem) simpleGrading (1 1 1)
+	hex ( 74   75   77   76   8   9   13   12) electrolyte ($nx $ny $nMem) simpleGrading (1 1 1)
+	hex ( 76   77   79   78   12   13   17   16) electrolyte ($nx $ny $nMem) simpleGrading (1 1 1)
+	
+	//catalyst anode
+	hex ( 80   81   83   82   70   71   73   72) fuel ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 82   83   85   84   72   73   75   74) fuel ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 84   85   87   86   74   75   77   76) fuel ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 86   87   89   88   76   77   79   78) fuel ($nx $ny 3) simpleGrading (1 1 1)
+	
+	//MPL anode
+	hex ( 90   91   93   92   80   81   83   82) fuel ($nx $ny 3) simpleGrading (1 1 0.32)
+	hex ( 92   93   95   94   82   83   85   84) fuel ($nx $ny 3) simpleGrading (1 1 0.32)
+	hex ( 94   95   97   96   84   85   87   86) fuel ($nx $ny 3) simpleGrading (1 1 0.32)
+	hex ( 96   97   99   98   86   87   89   88) fuel ($nx $ny 3) simpleGrading (1 1 0.32)
+	
+	//substrate anode
+	hex ( 100   101   103   102   90   91   93   92) fuel ($nx $ny 5) simpleGrading (1 1 0.32)
+	hex ( 102   103   105   104   92   93   95   94) fuel ($nx $ny 5) simpleGrading (1 1 0.32)
+	hex ( 104   105   107   106   94   95   97   96) fuel ($nx $ny 5) simpleGrading (1 1 0.32)
+	hex ( 106   107   109   108   96   97   99   98) fuel ($nx $ny 5) simpleGrading (1 1 0.32)
+	
+	
+	//channel anode
+	hex ( 110   111   113   112   100   101   103   102) fuel ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 112   113   115   114   102   103   105   104) abp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 114   115   117   116   104   105   107   106) abp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 116   117   119   118   106   107   109   108) abp ($nx $ny 5) simpleGrading (1 1 1)
+	
+	//BPP anode
+	hex ( 120   121   123   122   110   111   113   112) abp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 122   123   125   124   112   113   115   114) abp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 124   125   127   126   114   115   117   116) abp ($nx $ny 5) simpleGrading (1 1 1)
+	hex ( 126   127   129   128   116   117   119   118) abp ($nx $ny 5) simpleGrading (1 1 1)
+	
+	//coolant anode
+	hex ( 130   131   133   132   120   121   123   122) coolant ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 132   133   135   134   122   123   125   124) coolant ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 134   135   137   136   124   125   127   126) abp ($nx $ny 3) simpleGrading (1 1 1)
+	hex ( 136   137   139   138   126   127   129   128) abp ($nx $ny 3) simpleGrading (1 1 1)
+	
+); 
+
+
+edges
+(
+);
+
+boundary
+(
+	cat_in              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(30 40 32 42)  
+			(36 46 38 48)
+		);
+	}    
+	
+		//cathode inlet
+	cat_out              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(31 41 33 43)  
+			(37 47 39 49)
+		);
+	}  
+	
+	coolant_in              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(50 60 62 52)  
+			(52 62 64 54)
+			(130 120 122 132)
+			(132 122 124 134)
+		);
+	}
+	
+	coolant_out              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(51 61 63 53)  
+			(53 63 65 55)
+			(131 121 123 133)
+			(133 123 125 135)
+		);
+	}
+	
+
+	an_in              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(111 101 103 113)  
+		);
+	}
+	
+	
+	an_out              // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(110 100 102 112)  
+		);
+	}
+	
+	
+	symmetry_ch             // patch name
+    {
+		type symmetry;    // patch type for patch 0
+		faces
+		(
+			(130 131 121 120)
+			(120 121 111 110)
+			(110 111 101 100)
+			(100 101 91 90)
+			(90 91 81 80)
+			(80 81 71 70)
+			(70 71 1 0)
+			(0 1 5 4)
+			(4 5 21 20)
+			(20 21 31 30)
+			(30 31 41 40)
+			(40 41 51 50)
+			(50 51 61 60)
+		);
+	}
+	
+	symmetry_land             // patch name
+    {
+		type symmetry;    // patch type for patch 0
+		faces
+		(
+			(138 139 129 128)
+			(128 129 119 118)
+			(118 119 109 108)
+			(108 109 99 98)
+			(98 99 89 88)
+			(88 89 79 78)
+			(78 79 17 16)
+			(16 17 19 18)
+			(18 19 29 28)
+			(28 29 39 38)
+			(38 39 49 48)
+			(48 49 59 58)
+			(58 59 69 68)
+
+		);
+	}
+	
+	cat_periodic_coolant             // patch name
+    {
+		type symmetry;    // patch type for patch 0
+		faces
+		(
+			(60 61 63 62)
+			(62 63 65 64)
+		);
+	}
+	
+	an_periodic_coolant             // patch name
+    {
+		type symmetry;    // patch type for patch 0
+		faces
+		(
+			(130 131 133 132)
+			(132 133 135 134)
+		);
+	}
+	
+	cat_terminal             // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(64 65 67 66)
+			(66 67 69 68)
+		);
+	}
+	
+	
+	an_terminal             // patch name
+    {
+		type patch;    // patch type for patch 0
+		faces
+		(
+			(134 135 137 136)
+			(136 137 139 138)
+		);
+	}
+
+);
+
+mergePatchPairs 
+(
+);
+
+
+
+
+// ************************************************************************* //
