@@ -40,7 +40,7 @@ solvers
     YO2air
     {
         solver          GAMG;
-        tolerance       1e-06;
+        tolerance       1e-04;
         relTol          0.001;
         smoother        GaussSeidel;
     }
