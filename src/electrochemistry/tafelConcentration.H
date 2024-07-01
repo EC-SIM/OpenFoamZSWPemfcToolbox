@@ -10,7 +10,7 @@ scalarField conCathode(cathodePatch.size(),0);
             (
 			  Yair[s].boundaryFieldRef()[cathodeID]
 			  * rhoAir.boundaryFieldRef()[cathodeID]
-			  / airSpecies[s].MW()
+			  / (airSpecies[s].MW()/1000) 
 			);
 			
         }
@@ -28,7 +28,7 @@ scalarField conAnode(anodePatch.size(),0);
             (
 			  anodeToCathode.faceInterpolate(Yfuel[s].boundaryFieldRef()[anodeID])
 			  * anodeToCathode.faceInterpolate(rhoFuel.boundaryFieldRef()[anodeID])
-			  / fuelSpecies[s].MW()
+			  / (fuelSpecies[s].MW()/1000)
 			);
         }
     }
