@@ -24,7 +24,7 @@ public:
     scalar operator()(const scalar& i) const
     {
 	   return (Nernst_-(i*R_)-(A_*Foam::asinh((i+iLeakValue_)/(2*i0_Cat_)/conC_))
-			   -Vcell_-(C_*Foam::asinh(i)/(2*i0_An_)/conA_));
+			   -Vcell_-(C_*Foam::asinh(i/(2*i0_An_)/conA_)));
 
 	
     }
