@@ -19,7 +19,7 @@ scalarField etaAnode(anodePatch.size(), 0);
     (
         ((Rgas*anodeT)
         /(2*alphaCathodeElectrolyte.value()*F))
-        *Foam::asinh(i)/(2*i0Anode)/(Foam::pow(conAnode/refConA.value(), conExponentA.value()))	//Adapted concentration dependency S.S. 17.05.2021
+        *Foam::asinh(i/(2*i0Anode)/(Foam::pow(conAnode/refConA.value(), conExponentA.value())))	//Adapted concentration dependency S.S. 17.05.2021
     );
 
     Info<< "min,mean,max (etaAnode) = " << gMin(etaAnode) << "  "
