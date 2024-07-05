@@ -17,14 +17,14 @@ i0An            1000;
 EAn             17e3;
 alphaAn         0.5;
 ConExAn         1;
-refConAn        0.034;
+refConAn        34;
 trefAn          353.15;
 
-iOCat           0.08;
+iOCat           0.8;
 ECat            67e3;
 alphaCat        0.5;
 ConExCat        1;
-refConCat       0.034;
+refConCat       34;
 trefCat         353.15;
 
 iLeak			0;
